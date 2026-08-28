@@ -6,6 +6,10 @@ CREATE TABLE ticket_comments (
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
+CREATE INDEX idx_comments_tenant_ticket_created
+    ON ticket_comments (tenant_id, ticket_id, created_at DESC);
+
+
 SELECT create_distributed_table(
     'ticket_comments',
     'tenant_id'
