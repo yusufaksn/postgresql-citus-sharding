@@ -3,6 +3,7 @@ services:
   citus-coordinator:
     image: citusdata/citus:13.2
     container_name: citus-coordinator
+    shm_size: '1gb'
     ports:
       - "5432:5432"
     environment:
@@ -16,6 +17,7 @@ services:
   citus-worker1:
     image: citusdata/citus:13.2
     container_name: citus-worker1
+    shm_size: '1gb'
     ports:
       - "5433:5432"
     environment:
@@ -29,6 +31,7 @@ services:
   citus-worker2:
     image: citusdata/citus:13.2
     container_name: citus-worker2
+    shm_size: '1gb'
     ports:
       - "5434:5432"
     environment:
@@ -42,6 +45,7 @@ services:
   citus-worker3:
     image: citusdata/citus:13.2
     container_name: citus-worker3
+    shm_size: '1gb'
     ports:
       - "5435:5432"
     environment:
