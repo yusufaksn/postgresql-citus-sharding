@@ -1,0 +1,60 @@
+version: '3.8'
+
+services:
+  citus_master:
+    image: citusdata/citus:12.1
+    container_name: citus_master
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgrespassword
+      POSTGRES_DB: my_distributed_db
+    volumes:
+      - citus_master_data:/var/lib/postgresql/data
+    restart: unless-stopped
+
+  citus_worker1:
+    image: citusdata/citus:12.1
+    container_name: citus_worker1
+    ports:
+      - "5433:5432" 
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgrespassword
+      POSTGRES_DB: my_distributed_db
+    volumes:
+      - citus_worker1_data:/var/lib/postgresql/data
+    restart: unless-stopped
+
+  citus_worker2:
+    image: citusdata/citus:12.1
+    container_name: citus_worker2
+    ports:
+      - "5434:5432" 
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgrespassword
+      POSTGRES_DB: my_distributed_db
+    volumes:
+      - citus_worker2_data:/var/lib/postgresql/data
+    restart: unless-stopped
+
+  citus_worker3:
+    image: citusdata/citus:12.1
+    container_name: citus_worker3
+    ports:
+      - "5435:5432" 
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgrespassword
+      POSTGRES_DB: my_distributed_db
+    volumes:
+      - citus_worker3_data:/var/lib/postgresql/data
+    restart: unless-stopped
+
+volumes:
+  citus_master_data:
+  citus_worker1_data:
+  citus_worker2_data:
+  citus_worker3_data:
