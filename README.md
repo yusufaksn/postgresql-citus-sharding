@@ -4,6 +4,12 @@ This document describes the seed script that generates dummy data for the `ticke
 
 ---
 
+## Architecture
+
+![Citus Sharding Architecture](images/architecture.jpg)
+
+---
+
 ## ⚠️ IMPORTANT: This Migration Takes Time to Run
 
 > <span style="color:red">**This migration runs synchronously and takes noticeable time to complete. Do not close the terminal/app or re-trigger the migration before it finishes — doing so will load the data twice (duplicate seed).**</span>
